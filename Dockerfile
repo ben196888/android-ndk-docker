@@ -36,6 +36,7 @@ RUN adduser --gecos "jenkins" --disabled-password --shell "/bin/sh" jenkins &&\
     echo "jenkins ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 # This is insecure key, please generate another one on your own.
 COPY jenkins.pub /tmp/jenkins.pub
+RUN mkdir -p /home/jenkins/.ssh/
 RUN cat /tmp/jenkins.pub >> /home/jenkins/.ssh/authorized_keys && rm -f /tmp/jenkins.pub
 RUN chown -R jenkins:jenkins /home/jenkins/.ssh
 RUN chmod 600 /home/jenkins/.ssh/authorized_keys
