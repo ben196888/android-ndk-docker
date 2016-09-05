@@ -13,7 +13,7 @@ EXPOSE 22
 
 # Install required packages
 RUN apt-get update -qq
-RUN apt-get install -yqq unzip
+RUN apt-get install -yqq make unzip
 
 # Download Android ndk
 ENV ANDROID_NDK_HOME /opt/android-ndk-r12b
